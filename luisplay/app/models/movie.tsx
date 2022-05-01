@@ -9,6 +9,7 @@ interface IMovie {
     genre_ids: number[];
     first_air_date: string;
     name: string;
+    tagline: string,
     //known_for
 }
 

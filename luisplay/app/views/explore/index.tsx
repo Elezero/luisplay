@@ -32,6 +32,7 @@ import Colors from '../../styles/colors';
 
 
 interface IProps {
+    navigation: any
 }
 interface IState {
     
@@ -212,12 +213,12 @@ class Explore extends Component<IProps, IState> {
                                 width={ (Dimensions.get("screen").width / 2) - 10}
                                 height={ 200 }
                                 roundedImage={ false }
-                                /* onPress={ 
-                                    () => this.props.navigation.navigate('DetailsStack', {
+                                 onPress={ 
+                                    () => this.props.navigation.navigate('detailsScreen', {
                                         screen: "PlaceDetails",
-                                        params: { placePassed: placesRawOnGrid[index] },
+                                        params: { id: item.id },
                                     }
-                                )} */
+                                )} 
                                 style={ styles.miniCardStyle }
                             />
                         )}

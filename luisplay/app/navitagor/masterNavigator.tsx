@@ -7,6 +7,7 @@ import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/
 // SCREENS/VIEWS/COMPONENTS
 import Login from '../views/login';
 import Explore from '../views/explore';
+import Details from '../views/details';
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,7 @@ export default() => {
             <Stack.Navigator >
                 <Stack.Screen name='loginScreen' component={Login} options={{header: () => null}} />
                 <Stack.Screen name='exploreScreen' component={Explore} options={{header: () => null}} />
+                <Stack.Screen name='detailsScreen' component={Details} options={{header: () => null}} />
             </Stack.Navigator>
         </NavigationContainer>
     )

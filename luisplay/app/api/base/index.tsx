@@ -79,6 +79,14 @@ class Request {
     get(inner_url:string = '', id={idname: "", id: ""}){
         return this.request({ url: this.url+inner_url+"?"+id.idname+"="+id.id, data: '', method: 'GET' });
     }
+    
+    getDetails(inner_url:string = '', id:string){
+        return this.request({ url: (this.url+inner_url+id + (this.key_name != ''? ("?"+this.key_name+"="+this.key_token) : '')), data: '', method: 'GET' });
+    }
+
+    getSimilar(inner_url:string = ''){
+        return this.request({ url: (this.url+inner_url + (this.key_name != ''? ("?"+this.key_name+"="+this.key_token) : '')), data: '', method: 'GET' });
+    }
 
     post(inner_url:string = '', object: any){
         return this.request({ url: this.url+inner_url, data: object, method: 'POST' });

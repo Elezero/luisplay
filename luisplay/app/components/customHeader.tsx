@@ -9,9 +9,9 @@ import Colors from '../styles/colors';
     const icon_search = (Appearance.getColorScheme() === 'dark' )? 
                             require("../assets/images/icon_search_dark.png") 
                             : require("../assets/images/icon_search.png");
-    const icon_filter = (Appearance.getColorScheme() === 'dark' )? 
-                            require("../assets/images/icon_filter_dark.png") 
-                            : require("../assets/images/icon_filter.png");
+    const icon_close = (Appearance.getColorScheme() === 'dark' )? 
+                            require("../assets/images/icon_close_dark.png") 
+                            : require("../assets/images/icon_close.png");
     // STYLES
 
 
@@ -69,7 +69,7 @@ class CustomHeader extends Component<IProps, IState> {
                     }
                     
                     <TouchableOpacity style={styles.searchButton} onPress={() => this.props.toggleSearching() }>
-                        <Image source={icon_search} style={styles.headerImages} />
+                        <Image source={this.props.isSearching? icon_close : icon_search} style={styles.headerImages} />
                     </TouchableOpacity>
                 </View>
             </View>
