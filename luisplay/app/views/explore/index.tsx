@@ -26,6 +26,9 @@ import Colors from '../../styles/colors';
         const icon_transparent = (Appearance.getColorScheme() === 'dark' )? 
                                     require("../../assets/images/icon_transparent_dark.png") 
                                     : require("../../assets/images/icon_transparent.png");
+        const img_star_filled = (Appearance.getColorScheme() === 'dark' )? 
+                            require("../../assets/images/img_star_filled_dark.png") 
+                            : require("../../assets/images/img_star_filled.png");
     // STYLES
         const globalStyles = require('../../styles/globalStyles');
 
@@ -203,15 +206,21 @@ class Explore extends Component<IProps, IState> {
                                 contentFontSize={ 10 }
                                 titleFontSize={ 12 }
                                 content={ 
-                                    <Text style={styles.card_title}>
-                                        { item.overview.length < 60? item.overview : item.overview.substring(0, 59) + "..." }
-                                    </Text>
+                                    <>
+                                        <Text style={globalStyles.card_title}>
+                                            { item.overview.length < 30? item.overview : item.overview.substring(0, 29) + "..." }
+                                        </Text>
+                                        <View style={globalStyles.card_table_tiles} >
+                                            <Image style={globalStyles.card_table_tile_image} source={img_star_filled} />
+                                            <Text style={globalStyles.card_table_tile_text}>{ item.vote_average.toFixed(1) }</Text>
+                                        </View>
+                                    </>
                                 }
-                                title={ <Text style={styles.card_title}>{item.title}</Text> }
+                                title={ <Text style={globalStyles.card_title}>{item.title}</Text> }
                                 imageWidth={ '100%' }
-                                imageHeight={ 160 }
+                                imageHeight={ 200 }
                                 width={ (Dimensions.get("screen").width / 2) - 10}
-                                height={ 200 }
+                                height={ 310 }
                                 roundedImage={ false }
                                  onPress={ 
                                     () => this.props.navigation.navigate('detailsScreen', {
@@ -219,7 +228,7 @@ class Explore extends Component<IProps, IState> {
                                         params: { id: item.id },
                                     }
                                 )} 
-                                style={ styles.miniCardStyle }
+                                style={ globalStyles.miniCardStyle }
                             />
                         )}
                     />
@@ -256,23 +265,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginTop: 50,
     },
-    miniCardStyle: {
-        shadowColor       : Colors.SHADOW_COLOR,
-        shadowOffsetWidth : 2,
-        shadowOffsetHeight: 2,
-        shadowOpacity     : 0.1,
-        hadowRadius       : 5,
-        bgColor           : Colors.CARD_BACKGROUND_COLOR,
-        margin            : 5,
-        borderRadius      : 10,
-        elevation         : 3,
-        width             : (Dimensions.get("screen").width / 2) - 10,
-        flexWrap: 'nowrap', 
-        textColor: 'red'
-    },
-    card_title: {
-        color: Colors.CARD_TEXT
-    }
 });
 
 

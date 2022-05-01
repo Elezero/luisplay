@@ -206,15 +206,21 @@ class Details extends PureComponent<IProps, IState> {
                                 contentFontSize={ 10 }
                                 titleFontSize={ 12 }
                                 content={ 
-                                    <Text style={styles.card_title}>
-                                        { item.overview.length < 60? item.overview : item.overview.substring(0, 59) + "..." }
-                                    </Text>
+                                    <>
+                                        <Text style={globalStyles.card_title}>
+                                            { item.overview.length < 30? item.overview : item.overview.substring(0, 29) + "..." }
+                                        </Text>
+                                        <View style={globalStyles.card_table_tiles} >
+                                            <Image style={globalStyles.card_table_tile_image} source={img_star_filled} />
+                                            <Text style={globalStyles.card_table_tile_text}>{ item.vote_average.toFixed(1) }</Text>
+                                        </View>
+                                    </>
                                 }
-                                title={ <Text style={styles.card_title}>{item.title}</Text> }
+                                title={ <Text style={globalStyles.card_title}>{item.title}</Text> }
                                 imageWidth={ '100%' }
-                                imageHeight={ 160 }
+                                imageHeight={ 200 }
                                 width={ (Dimensions.get("screen").width / 2) - 10}
-                                height={ 200 }
+                                height={ 300 }
                                 roundedImage={ false }
                                  onPress={ 
                                     () => this.props.navigation.push('detailsScreen', {
@@ -222,7 +228,7 @@ class Details extends PureComponent<IProps, IState> {
                                         params: { id: item.id },
                                     }
                                 )} 
-                                style={ styles.miniCardStyle }
+                                style={ globalStyles.miniCardStyle }
                             />
                         )}
                     />
@@ -424,23 +430,6 @@ const styles = StyleSheet.create({
         height: '100%',
         resizeMode: '100%',
         position: 'absolute',
-    },
-    miniCardStyle: {
-        shadowColor       : Colors.SHADOW_COLOR,
-        shadowOffsetWidth : 2,
-        shadowOffsetHeight: 2,
-        shadowOpacity     : 0.1,
-        hadowRadius       : 5,
-        bgColor           : Colors.CARD_BACKGROUND_COLOR,
-        margin            : 5,
-        borderRadius      : 10,
-        elevation         : 3,
-        width             : (Dimensions.get("screen").width / 2) - 10,
-        flexWrap: 'nowrap', 
-        textColor: 'red'
-    },
-    card_title: {
-        color: Colors.CARD_TEXT
     },
     subcontainer_grid : {
         alignItems   : "center",

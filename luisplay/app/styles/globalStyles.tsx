@@ -1,5 +1,5 @@
 'use strict';
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 
 import Colors from './colors';
 
@@ -142,6 +142,44 @@ module.exports = StyleSheet.create({
         paddingBottom: 8,
         fontWeight: 'bold',
         width: '100%',
+    },
+
+    /*    MINI CARD STYLE  */
+    miniCardStyle: {
+        shadowColor       : Colors.SHADOW_COLOR,
+        shadowOffsetWidth : 2,
+        shadowOffsetHeight: 2,
+        shadowOpacity     : 0.1,
+        hadowRadius       : 5,
+        bgColor           : Colors.CARD_BACKGROUND_COLOR,
+        margin            : 5,
+        borderRadius      : 10,
+        elevation         : 3,
+        width             : (Dimensions.get("screen").width / 2) - 10,
+        flexWrap: 'nowrap', 
+        textColor: 'red',
+    },
+    card_title: {
+        color: Colors.CARD_TEXT
+    },
+    card_table_tiles: {
+        flexDirection:'row', 
+        flexWrap:'wrap',
+        marginVertical: 2, 
+    },
+    card_table_tile_image: {
+        height:  '100%',
+        width: 16,
+        opacity: 0.7,
+        resizeMode: 'contain',
+        marginRight: 13,
+        marginLeft: 3,
+    },
+    card_table_tile_text: {
+        color: Colors.CARD_TABLE_TILES_TEXT,
+        fontSize: 14,
+        //fontWeight: 'bold',
+        width: Dimensions.get('window').width - 100
     },
 
 
